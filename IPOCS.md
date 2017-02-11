@@ -76,7 +76,7 @@ IP shall be used as network layer protocol.
 
 ## Transport Layer
 
-TCP should be used as transport layer protocol, as it provides CRC checks and 
+TCP should be used as transport layer protocol, as it provides CRC checks and
 guarantees delivery as well as in order delivery.
 
 If any other protocol is used, it is up to the implementation to add
@@ -88,18 +88,18 @@ as well.
 ## Protocol Components
 
 This chapter describes the message format used in the application protocol.
-Format is described by three components: Message, Packet and Variable.
+Format is described by two components: Message and Packet.
 
-A Message consists of a header and one or more Packets. The header and
-the packets are composed from Variables.
+A Message consists of a header and one. The header and the packets are composed
+of Variables.
 
 The layout of the application protocol PDU shall be as follows:
 
 ```
-+--------+------------+-----------------------+-------------+
-| Header | 1st packet | 2nd packet (optional) | n:th packet |
-+--------+------------+-----------------------+-------------+
-````
++--------+--------+
+| Header | Packet |
++--------+--------+
+```
 
 ### Definition of Variables and rules for variable coding
 
@@ -120,7 +120,7 @@ When transmitting, the most significant byte shall be transmitted first
 
 All Variables have one of the following prefixes:
 
-|       |                   |
+| Prefix| Description       |
 | ----- | ----------------- |
 | RL_   |  Length           |
 | RM_   |  Miscellaneous    |
